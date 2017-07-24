@@ -18,6 +18,7 @@ try{
 }
 //设置操作数据库的字符集
 $pdo->query("set names utf8");
+
 //引入bootstrap样式
 echo "<link href='bootstrap-3.3.7-dist/css/bootstrap.min.css' rel='stylesheet'>";
 echo "<script src='jquery-3.2.1.min.js'></script>";

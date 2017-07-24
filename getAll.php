@@ -2,11 +2,17 @@
 /**
  *作者：ZMH
  *内容：PDO php操作MySQL数据库
- *时间：20170720
+ *时间：20170724
  */
 
 //把common.php文件包含进来
 include 'common.php';
+//验证管理员是否登录
+include 'checkLogin.php';
+echo "<pre>";
+var_dump($_POST);
+var_dump($_COOKIE);
+echo "</pre>";
 
 //总记录数
 $total=$pdo->query("select * from member")->rowCount();
@@ -65,8 +71,8 @@ echo "</pre>"; */
 	*{margin:0;padding:0}
 	body{background: #193d5d;color:white}
 	table{background:white;margin-top:20px;color:black;}
-	li a{color:white}
-	li a:hover{color:white}
+	li a,a.logout{color:white}
+	li a:hover,a.logout:hover{color:white}
 	h3{color:white;padding-bottom:10px;border-bottom:1px solid white;}
 	.page{border-top:1px solid white;border-bottom:1px solid white;}
 	.page ul{text-align:center;}

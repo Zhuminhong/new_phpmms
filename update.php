@@ -6,6 +6,9 @@
 error_reporting(E_ALL^E_NOTICE);
 //把common.php文件包含进来
 include 'common.php';
+//验证管理员是否登录
+include 'checkLogin.php';
+
 
 //如果没有id，就跳转回首页
 if($_GET["id"]){
@@ -55,7 +58,7 @@ if($_GET["id"]){
 ?>
 
 <style>
-    body{background: #193d5d;}
+    body{background: #193d5d; color:white}
     h3{color:white;padding-bottom:10px;border-bottom:1px solid white;}
 	form{
 		margin-top:100px;
@@ -77,7 +80,8 @@ if($_GET["id"]){
 		font-weight:bold;
 		display:none;
 	}
-
+	a{color:white};
+	a:hover{color:white};
 </style>
 <h3 class='text-center'>USER ADMINISTRATION</h3>
 <div class="container">

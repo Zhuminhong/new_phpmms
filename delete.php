@@ -6,6 +6,9 @@
 error_reporting(E_ALL^E_NOTICE);
 //把common.php文件包含进来
 include 'common.php';
+//验证管理员是否登录
+include 'checkLogin.php';
+
 
 //如果id不为真，就跳转
 if($_GET["id"]){

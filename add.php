@@ -6,6 +6,8 @@
 error_reporting(E_ALL^E_NOTICE);
 //把common.php文件包含进来
 include 'common.php';
+//验证管理员是否登录
+include 'checkLogin.php';
 
 //var_dump($_POST);
 //判断是否点击了提交按钮
@@ -20,10 +22,10 @@ if($_POST["send"]){
 	echo "</pre>"; */
 	//如果用户名已存在
 	if($oneUser[0]){
-		echo "<script>
-				alert('用户名已存在，请重试！');
+		echo '<script>
+				alert("用户名已存在");
 				history.go(-1);
-			</script>";
+			</script>';
 		return false;
 	}
 	
@@ -46,10 +48,9 @@ if($_POST["send"]){
 	$result=$pdo->exec($sql);
 	if($result){
 		//echo "ok";
-		echo "<script>
-			alert('用户添加成功');
-			location.href='getAll.php';
-			</script>";
+		echo '<script>
+			$("#addSuccess").modal("show");
+			</script>';
 	}else{
 		echo "failed";
 	}
@@ -58,7 +59,7 @@ if($_POST["send"]){
 ?>
 
 <style>
-    body{background: #193d5d;}
+    body{background: #193d5d; color:white}
     h3{color:white;padding-bottom:10px;border-bottom:1px solid white;}
 	form{
 		margin-top:100px;
@@ -80,6 +81,8 @@ if($_POST["send"]){
 		font-weight:bold;
 		display:none;
 	}
+	a{color:white};
+	a:hover{color:white};
 
 </style>
 <h3 class='text-center'>USER ADMINISTRATION</h3>
@@ -140,6 +143,10 @@ if($_POST["send"]){
 		}else{
 			return false
 		}
+	})
+	//点击确认，跳转页面
+	$("#addSuccess button").click(function(){
+		location.href='getAll.php';
 	})
 	//根据类选择器选择元素——kong
 /* 	var addBtn = document.querySelector(".addBtn");
