@@ -9,10 +9,10 @@ include "common.php";
  * @todo ： 一周内不用登录
  *   */
 //如果cookie存在的话，免登录
-/* if($_COOKIE['userName']){
+if($_COOKIE['userName']){
 	$_SESSION['admin']=$_COOKIE["userName"];
 	header("location:getAll.php");
-} */
+}
 //点击登录
 if($_POST["send"]){	
 	/* echo "<pre>";
@@ -36,13 +36,10 @@ if($_POST["send"]){
 			//判断是否选择了一周内不用登录
 			if($_POST['oneWeek']=="1"){
 				setcookie("userName",$_POST['userName'],time()+3600*24*7);
-				header("location:getAll.php?oneWeek=1");
 			}else{
 				setcookie("userName",$_POST['userName']);
-				header("location:getAll.php?oneWeek=0");
 			}
-			//把用户对象保存到$_SESSION中,才能成功跳转到首页
-			$_SESSION['admin']=$oneUser[0];
+			header("location:getall.php");
 		}else{
 			//如果错误，就弹出信息，并刷新页面
 			echo "<script>alert('用户名或密吗错误');location.href='login.php';</script>";

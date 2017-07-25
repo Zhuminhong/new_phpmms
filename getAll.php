@@ -10,8 +10,8 @@ include 'common.php';
 //验证管理员是否登录
 include 'checkLogin.php';
 echo "<pre>";
-var_dump($_POST);
-var_dump($_COOKIE);
+//var_dump($_POST);
+//var_dump($_COOKIE);
 echo "</pre>";
 
 //总记录数
